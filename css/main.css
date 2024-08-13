@@ -1,0 +1,229 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --Tomato: rgb(255, 98, 87);
+  --error-color: rgba(255, 98, 87, 0.2);
+  --Dark-Slate-Grey: rgb(36, 39, 66);
+  --Charcoal-Grey: rgb(54, 56, 78);
+  --Grey: rgb(146, 148, 160);
+  --White: rgb(255, 255, 255);
+  --btn-gradient: linear-gradient(to right, rgb(230, 74, 111), rgb(255, 98, 87));
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100svh;
+  font-family: "Roboto";
+  font-size: 1.6rem;
+  background-color: var(--Charcoal-Grey);
+}
+
+.newsletter-box {
+  max-width: 375px;
+  height: 800px;
+  margin: 0 auto;
+  background-color: var(--White);
+  overflow: hidden;
+}
+.newsletter-box__img {
+  width: 100%;
+  height: 28rem;
+  background-image: url("../assets/images/illustration-sign-up-mobile.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.newsletter-box__content {
+  padding: 2.5em 1.5em;
+  color: var(--Dark-Slate-Grey);
+}
+.newsletter-box__heading {
+  font-size: 3.5rem;
+}
+.newsletter-box__slogan {
+  padding: 1em 0;
+}
+.newsletter-box__list {
+  padding-top: 0.5em;
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  list-style: none;
+}
+.newsletter-box__list--list-item {
+  display: flex;
+  gap: 1em;
+}
+.newsletter-box__email-box {
+  position: relative;
+}
+.newsletter-box__email-box--label {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.newsletter-box__email-box--error {
+  position: absolute;
+  right: 0;
+  font-weight: 700;
+  color: var(--Tomato);
+  visibility: hidden;
+}
+.newsletter-box__email-box--input {
+  width: 100%;
+  margin: 0.7em 0 1.4em 0;
+  padding: 1em 1.5em;
+  border: 1px solid var(--Grey);
+  border-radius: 8px;
+}
+.newsletter-box__email-box--input:hover {
+  cursor: pointer;
+}
+
+.success-state {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 8em 1.5em 2.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--White);
+  transform: translateY(-100%);
+  opacity: 1;
+  z-index: -10;
+}
+.success-state__icon {
+  margin-bottom: 2.5em;
+}
+.success-state__text-content {
+  transform: translateY(-80%);
+}
+.success-state__heading {
+  margin-bottom: 0.7em;
+  font-size: 3.5rem;
+  line-height: 100%;
+}
+.success-state__text {
+  line-height: 150%;
+}
+.success-state__email {
+  font-weight: 700;
+}
+
+.btn-style {
+  width: 100%;
+  padding: 1.2em 0;
+  color: var(--White);
+  font-size: 1.4rem;
+  font-weight: 700;
+  background-color: var(--Dark-Slate-Grey);
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+.btn-style:hover {
+  cursor: pointer;
+  box-shadow: 0 5px 15px var(--Tomato);
+  background: var(--btn-gradient);
+}
+
+.error {
+  background-color: var(--error-color);
+  border: 1px solid var(--Tomato);
+}
+.error::-moz-placeholder {
+  color: var(--Tomato);
+}
+.error::placeholder {
+  color: var(--Tomato);
+}
+
+.visibility-visible {
+  visibility: visible;
+}
+
+.show-alert {
+  animation: showAlert 0.3s forwards;
+}
+
+.hide-alert {
+  animation: hideAlert 0.3s forwards;
+}
+
+@keyframes showAlert {
+  from {
+    opacity: 0;
+    z-index: -10;
+  }
+  to {
+    opacity: 1;
+    z-index: 10;
+  }
+}
+@keyframes hideAlert {
+  from {
+    opacity: 1;
+    z-index: 10;
+  }
+  to {
+    opacity: 0;
+    z-index: -10;
+  }
+}
+@media (min-width: 1000px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .newsletter-box {
+    position: relative;
+    max-width: 800px;
+    max-height: 500px;
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    grid-template-rows: 100%;
+    gap: 2.5em;
+    border-radius: 12px;
+  }
+  .newsletter-box__content {
+    padding: 1em 0 0 0;
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .newsletter-box__img {
+    height: auto;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background-position: -11em 0;
+    border-radius: 12px;
+  }
+  .success-state {
+    height: 436px;
+    padding: 2em 0;
+    transform: translateY(-456px);
+  }
+  .success-state__icon {
+    margin-bottom: 0;
+  }
+  .success-state__text-content {
+    margin-bottom: 2em;
+    transform: translateY(0);
+  }
+  .success-state__button {
+    margin-bottom: 1.4em;
+  }
+}/*# sourceMappingURL=main.css.map */
